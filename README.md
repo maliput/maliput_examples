@@ -2,7 +2,8 @@
 
 ## Example List
 
-* ...
+* [ ] an example of malidrive as a controller
+* [ ] use malidrive for route-creation
 
 
 ## Infra Milestones
