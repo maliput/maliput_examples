@@ -1,23 +1,48 @@
-# Development Environment
+# Maliput Examples
 
-## Requirements
+### Development Environment
 
-This assumes the host is running an XOrg server (e.g. Ubuntu). This is relayed to the
-devcontainer to run the qt viwers. You may need a different devcontainer configuration if running,
-e.g. a Wayland server.
+**PreRequisites**
 
-## Sources
+* Install VSCode
+
+**Setup**
 
 ```
-# Fetch sources
-$ mkdir src
-$ wget -O - https://raw.githubusercontent.com/stonier/repos_index/devel/foxy/py_trees.repos | vcs import ./src
+# Fetch the sources
+git clone git@github.com:stonier/maliput_ws.git
 
-# Open VSCode
-$ code ./src/py_trees_ros
+# Launch vscode
+cd maliput_ws
+code .
+
+# Reopen in Container or CTRL-SHIFT-P
+
+# Select the 'headless' devcontainer
+(docker) zen@headless:/workspaces/maliput_ws$
+
+# Open up a terminal
 ```
 
-## VSCode DevContainer
+### Sources
 
-At this point you can use VSCode to "Re-open project in container" -> this will bring everything from
-the root of the colcon workspace (i.e. below `./src`) into both the devcontainer and the vscode UI.
+## Example List
+
+* [ ] an example of malidrive as a controller
+* [ ] use malidrive for route-creation
+
+
+## Infra Milestones
+
+C++
+
+* [ ] ros project &rarr; cmake project (still use ros deps)
+* [ ] bazel modules for maliput dependencies
+* [ ] (?) stargate bazel registry &rarr; innersource
+* [ ] cmake project &rarr; bazel module (use bazel module deps)
+
+Python
+
+* [ ] create a `maliput_py_examples` project
+* [ ] python ros project &rarr; poetry project
+* [ ] poetry project &larr; pypi packages
