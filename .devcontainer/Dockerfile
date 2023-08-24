@@ -3,29 +3,22 @@
 #  - https://hub.docker.com/_/ros/
 ################################################################################
 
-ARG ROS_DISTRO=foxy
+ARG UBUNTU_DISTRO=focal
 
-FROM ros:${ROS_DISTRO}
+FROM ubuntu:${UBUNTU_DISTRO}
 
-ARG NAME=ros-${ROS_DISTRO}
+ARG NAME=headless
 
 ################################################################################
 # Updates
 ################################################################################
 
-# TODO: Delete the list of debs. These are merely the list
-# required by rosdep for the py-trees set of repos on foxy
-# and this would be better handled by rosdep itself
-# so it can gracefully transition across distros.
-#
-# NB: Installing debs here for now to expedite testing of the
-# devcontainer configuration (esp. for qt, X11).
-#
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    # poetry
+    # python
     curl \
     python3-dev \
-    # docs
+    python3-pip \
+    # environments
     python3-venv \
     # development
     bash \
@@ -36,35 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     make \
     ssh \
     vim \
-    wget \
-    # Other
-    qttools5-dev-tools
-    # Still need these?
-    # libpyside2-dev \
-    # libshiboken2-dev \
-    # pyqt5-dev \
-    # python3-pyqt5.qtsvg \
-    # python3-pyside2.qtsvg \
-    # python3-sip-dev \
-    # shiboken2 \
-    # python3-pyqt5.qtwebengine \
-    # python3-mypy
-
-####################
-# OpenGL
-####################
-# mesa-utils : glxgears + gl libs (libgl# libglvnd#, libglx#)
-# egl: not needed (libegl1, libgles2)
-# vulkan: not needed
-RUN apt-get install -y --no-install-recommends \
-    mesa-utils
-
-################################################################################
-# NVIDIA
-################################################################################
-
-ENV NVIDIA_VISIBLE_DEVICES ${NVIDIA_VISIBLE_DEVICES:-all}
-ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics,display,video,utility,compute
+    wget
 
 ################################################################################
 # Login Shells for Debugging & Development
@@ -91,10 +56,6 @@ RUN groupadd --gid $USER_GID $USERNAME && \
 RUN echo "export PS1='\[\033[01;36m\](docker)\[\033[00m\] \[\033[01;32m\]\u@${NAME}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /home/${USERNAME}/.bashrc && \
     echo "alias ll='ls --color=auto -alFNh'" >> /home/${USERNAME}/.bashrc && \
     echo "alias ls='ls --color=auto -Nh'" >> /home/${USERNAME}/.bashrc
-
-USER zen
-RUN rosdep update
-USER root
 
 ################################################################################
 # Debugging with root
