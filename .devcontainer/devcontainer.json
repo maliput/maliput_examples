@@ -4,8 +4,7 @@
     "build": {
         "dockerfile": "./Dockerfile",
         "args": {
-            "NAME": "headless",
-            "UBUNTU_DISTRO": "focal"
+            "NAME": "headless"
         },
         "context": ".."
     },
@@ -16,9 +15,11 @@
                 "bierner.github-markdown-preview",
                 "bierner.markdown-preview-github-styles",
                 "bungcip.better-toml",
-                "streetsidesoftware.code-spell-checker",
+                "eamodio.gitlens",
                 "ms-python.python",
                 "omnilib.ufmt",
+                "redhat.vscode-yaml",
+                "streetsidesoftware.code-spell-checker",
                 "tht13.rst-vscode"
             ]
         }

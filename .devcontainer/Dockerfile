@@ -1,6 +1,17 @@
 ################################################################################
-# Base
-#  - https://hub.docker.com/_/ros/
+# About
+#   This is a bit of a swiss-knife based on an ubuntu focal image.
+#
+#   - python3 (system install)
+#   - poetry (in /opt/poetry)
+#   - adds a user named 'zen'
+# 
+# Variables for configuration:
+#
+#   - NAME (default: headless)
+#   - UBUNTU_DISTRO (default: focal)
+#   - POETRY_VERSION (default: 1.6.1)
+# 
 ################################################################################
 
 ARG UBUNTU_DISTRO=focal
@@ -8,6 +19,7 @@ ARG UBUNTU_DISTRO=focal
 FROM ubuntu:${UBUNTU_DISTRO}
 
 ARG NAME=headless
+ARG POETRY_VERSION=1.6.1
 
 ################################################################################
 # Updates
@@ -15,7 +27,6 @@ ARG NAME=headless
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # python
-    curl \
     python3-dev \
     python3-pip \
     # environments
@@ -23,13 +34,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # development
     bash \
     bash-completion \
+    build-essential \
     ca-certificates \
+    curl \
     git \
     less \
     make \
     ssh \
+    unzip \
     vim \
-    wget
+    wget \
+    zip
+
+################################################################################
+# Poetry
+################################################################################
+
+ENV POETRY_HOME=/opt/poetry
+ENV PATH="${POETRY_HOME}/bin:${PATH}"
+
+RUN curl -sSL https://install.python-poetry.org | POETRY_VERSION=${POETRY_VERSION} python3 - && \
+    poetry config virtualenvs.create false
 
 ################################################################################
 # Login Shells for Debugging & Development
