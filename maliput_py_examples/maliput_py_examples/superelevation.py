@@ -24,24 +24,37 @@ def main():
     road_network = maliput.plugin.create_road_network("maliput_malidrive", params)
     road_geometry = road_network.road_geometry()
 
-    inertial_pos = maliput.api.InertialPosition(-58.32, 106.50, 0)
+    # TODO(daniel.stonier): Having to set 2.2 here to get in a road volume
+    # so it find the relevant
+    inertial_pos = maliput.api.InertialPosition(-58.32, 106.50, 2.2)
     result = road_geometry.ToRoadPosition(inertial_pos)
     road_position = result.road_position
-    nearest_position = result.nearest_position
-    to_the_side_lane_pos = maliput.api.LanePosition(
-        road_position.pos.s(),
-        road_position.pos.r() + 1.0,
-        road_position.pos.h()
+    lane = road_position.lane
+    associated = result.distance < 0.0001  #  how to get this -> road_geometry.linear_tolerance()?
+    if not associated:
+        print("Candidate Point is not associated with a road volume, aborting")
+
+    on_the_surface_pos = lane.ToInertialPosition(
+        maliput.api.LanePosition(
+            road_position.pos.s(),
+            road_position.pos.r(),
+            0.0  # pin it to the manifold
+        )
     )
-    to_the_side_pos = road_position.lane.ToInertialPosition(to_the_side_lane_pos)
+    # TODO(daniel.stonier): check that it is still a valid lane point
+    to_the_side_pos = lane.ToInertialPosition(
+        maliput.api.LanePosition(
+            road_position.pos.s(),
+            road_position.pos.r() + 1.0,
+            0.0  # pin it to the manifold
+        )
+    )
 
     print("")
     print(f"Candidate Inertial Position: {inertial_pos.xyz()}")
-    print(f"Nearest Inertial Position (Cartesian): {nearest_position.xyz()}")
-    print(f"  Road Position - Lane ID: {lane.id()}")
-    print(f"  Road Position - Lane Position: {road_position.pos.srh()}")
+    print(f"  Surface Position: {on_the_surface_pos.xyz()}")
     print("")
     print(f"Sliding Up The Slope (+1.0m)")
-    print(f"  New Inertial Position: {to_the_side_pos.xyz()}")
+    print(f"  Surface Position: {to_the_side_pos.xyz()}")
     print("")
  
