@@ -27,6 +27,7 @@ python = "^3.8"
 [tool.poetry.scripts]
 maliput-inertial-to-road = "maliput_py_examples.inertial_to_road:main"
 maliput-superelevation = "maliput_py_examples.superelevation:main"
+maliput-malidrive-ids = "maliput_py_examples.malidrive_ids:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
