@@ -25,15 +25,24 @@ def main():
 
     params = { "opendrive_file": filepath }
 
-    rn = maliput.plugin.create_road_network("maliput_malidrive", params)
-    rg = rn.road_geometry()
+    road_network = maliput.plugin.create_road_network("maliput_malidrive", params)
+    road_geometry = road_network.road_geometry()
 
     inertial_pos = maliput.api.InertialPosition(0, 0, 0)
-    road_pos = rg.ToRoadPosition(inertial_pos)
+    road_pos = road_geometry.ToRoadPosition(inertial_pos)
 
     # Print the results
-    print(f"Inertial position: {inertial_pos.xyz()}")
-    print(f"Nearest position: {road_pos.nearest_position.xyz()}")
-    print(f"Road position - lane id: {road_pos.road_position.lane.id()}")
-    print(f"Road position - lane position: {road_pos.road_position.pos.srh()}")
-    print(f"Distance: {road_pos.distance}")
+    print("")
+    print(f"Candidate Inertial Position: {inertial_pos.xyz()}")
+    print("")
+    print(f"Nearest Inertial Position (Cartesian): {road_pos.nearest_position.xyz()}")
+    print(f"  Road Position - Lane ID: {road_pos.road_position.lane.id()}")
+    print(f"  Road Position - Lane Position: {road_pos.road_position.pos.srh()}")
+    print(f"  Distance from Requested Position: {road_pos.distance}")
+    print("")
+    print(f"Nearest Inertial Position (Z): {road_pos.nearest_position.xyz()}")
+    print(f"  Road Position - Lane ID: {road_pos.road_position.lane.id()}")
+    print(f"  Road Position - Lane Position: {road_pos.road_position.pos.srh()}")
+    print(f"  Distance from Requested Position: {road_pos.distance}")
+    print("")
+

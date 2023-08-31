@@ -41,3 +41,7 @@ maliput-<TAB><TAB>
   maliput-inertial-to-road
   ...
 ```
+
+## Visualizing XODRs
+
+Open them in https://odrviewer.io/.
