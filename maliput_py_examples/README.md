@@ -2,43 +2,47 @@
 
 ## Setup
 
-* [Install VSCode](https://code.visualstudio.com/docs/setup/linux)
-* Launch the project in the devcontainer:
+1. [Install VSCode](https://code.visualstudio.com/docs/setup/linux)
+2. Fetch the code
 
 ```bash
-# Fetch sources
-git clone git@github.com:stonier/maliput_ws.git
+$ git clone git@github.com:stonier/maliput_examples.git
+```
 
-# Launch VSCode
-cd maliput_ws
-code .
+3. Launch the project in the python devcontainer:
+
+```
+$ cd maliput_examples
+$ code .
 
 # Reopen in Container or CTRL-SHIFT-P
 #   Select the python devcontainer from the subsequent drop-down
 
 # Open up a terminal (if it hasn't already)
 (docker) zen@headless:/workspaces/maliput_examples$
+
+# Switch to the project
+$ cd maliput_py_examples
 ```
 
-* Install dependencies
+4. Install dependencies
 
 ```bash
-cd maliput_py_examples
-# Install dependencies
-poetry install
+$ poetry install
 
-# Install wheels - this will be be covered by 'poetry install' once
-# available on pypi.
-poetry shell
-pip install wheels/maliput-0.1.5-cp38-cp38-linux_x86_64.whl
-pip install wheels/maliput_malidrive-0.1.4-cp38-cp38-linux_x86_64.whl
+Installing dependencies from lock file
+
+Package operations: 2 installs, 0 updates, 0 removals
+
+  • Installing maliput (0.1.6)
+  • Installing maliput-malidrive (0.1.4)
 ```
 
 ## Run Examples
 
 ```bash
-poetry shell
-maliput-<TAB><TAB>
+$ poetry shell
+$ maliput-<TAB><TAB>
   maliput-inertial-to-road
   ...
 ```

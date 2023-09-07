@@ -23,11 +23,19 @@ keywords=["maliput"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+# TODO(daniel.stonier) shift to pypi once available, also fix maliput's version when published
+maliput = { version = "0.1.6", source = "test" }
+maliput_malidrive = { version = "0.1.4", source = "test" }
 
 [tool.poetry.scripts]
 maliput-inertial-to-road = "maliput_py_examples.inertial_to_road:main"
 maliput-superelevation = "maliput_py_examples.superelevation:main"
 maliput-malidrive-ids = "maliput_py_examples.malidrive_ids:main"
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
