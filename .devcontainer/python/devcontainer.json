@@ -1,10 +1,10 @@
 {
-    "name": "maliput",
+    "name": "python",
 
     "build": {
         "dockerfile": "./Dockerfile",
         "args": {
-            "NAME": "headless"
+            "NAME": "python"
         },
         "context": ".."
     },

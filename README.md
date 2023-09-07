@@ -32,13 +32,12 @@ setup and usage instructions.
 
 Python
 
-* [ ] create a `maliput_py_examples` project
-* [ ] manually install wheels and prove it works with a demo
+* [x] create a `maliput_py_examples` project
+* [x] manually install wheels and prove it works with a demo
 * [ ] fetch wheels from pypi and use in a poetry project
 
 C++
 
-* [ ] ros project &rarr; cmake project (still use ros deps)
 * [ ] bazel modules for maliput dependencies
 * [ ] (?) stargate bazel registry &rarr; innersource
 * [ ] cmake project &rarr; bazel module (use bazel module deps)

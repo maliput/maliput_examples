@@ -14,8 +14,9 @@ cd maliput_ws
 code .
 
 # Reopen in Container or CTRL-SHIFT-P
+#   Select the python devcontainer from the subsequent drop-down
 
-# Open up a terminal
+# Open up a terminal (if it hasn't already)
 (docker) zen@headless:/workspaces/maliput_examples$
 ```
 
