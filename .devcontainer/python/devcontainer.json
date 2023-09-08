@@ -1,6 +1,5 @@
 {
     "name": "python",
-
     "build": {
         "dockerfile": "./Dockerfile",
         "args": {
