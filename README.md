@@ -26,7 +26,7 @@ See the individual projects in subdirectories for detailed
 setup and usage instructions.
 
 * [maliput_py_examples](./maliput_py_examples/README.md)
-* maliput_cc_examples - coming soon
+* [maliput_cpp_examples](./maliput_cpp_examples/README.md)
 
 ## Backlog
 
@@ -34,14 +34,21 @@ Python
 
 * [x] create a `maliput_py_examples` project
 * [x] manually install wheels and prove it works with a demo
-* [ ] fetch wheels from pypi and use in a poetry project
+* [~] fetch wheels from pypi and use in a poetry project
 
 C++
 
-* [ ] bazel modules for maliput dependencies
-* [ ] (?) stargate bazel registry &rarr; innersource
-* [ ] cmake project &rarr; bazel module (use bazel module deps)
+* [x] `yaml-cpp` bazel module
+* [~] upstream bzlmod PR to yaml-cpp
+* [x] `maliput` bazel module
+* [ ] eliminate dependency on `unsupported/Eigen`
+* [ ] `maliput_drake` decomposition
+* [ ] `maliput_malidrive` bazel module
+* [ ] eliminate dependency on `fmt`
+* [ ] upstream all bzlmod related PRs to maliput family
+* [ ] upstream module PRs bazel-central-registry
 
 Examples
 
-* [ ] get superelevation
+* [x] python - superelevation
+* [ ] ...
