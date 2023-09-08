@@ -1,11 +1,6 @@
-// Bazel Images:
-//    https://artifactory-ha.tmc-stargate.com/ui/repos/tree/General/arene-driving-docker-local-internal/bazel-zen
 {
     "name": "bazel",
     "build": {
-        // offline from ./bazel_docker_images
-        // "dockerfile": "../bazel_docker_images/focal/Dockerfile",
-        // online from artifactory
         "dockerfile": "Dockerfile",
         "args": {
             "BAZEL_BASE_IMAGE": "bazel-focal"
@@ -24,11 +19,7 @@
             ]
         }
     },
-    "mounts": [
-        // Stargate Artifactory and Github credentials
-        //   https://github.tmc-stargate.com/arene-driving/stargate-zen/blob/main/README.md
-        "source=${localEnv:HOME}/.netrc,target=/home/zen/.netrc,type=bind,consistency=cached",
-        "source=/mnt/mervin/workspaces/devel/yaml-cpp,target=/workspaces/yaml-cpp,type=bind,consistency=cached",
-        "source=/mnt/mervin/workspaces/devel/maliput_zen,target=/workspaces/maliput_zen,type=bind,consistency=cached",
-    ]
+    // "mounts": [
+    //     "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput,target=/workspaces/maliput,type=bind,consistency=cached"
+    // ]
 }
