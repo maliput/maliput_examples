@@ -1,7 +1,6 @@
 /*****************************************************************************
- * Copyright: 2023 Woven Planet
- * License: Arene-Stub
- * URL: https://github.tmc-stargate.com/arene-driving/bazel-zen/blob/main/LICENSE
+ * License: BSD-3
+ * URL: https://github.com/stonier/maliput_examples/blob/main/LICENSE
  *****************************************************************************/
 
 /* https : // github.com/jbeder/yaml-cpp/wiki/Tutorial */
