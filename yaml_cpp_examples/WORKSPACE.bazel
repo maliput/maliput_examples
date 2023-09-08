@@ -1,1 +1,1 @@
-workspace(name = "bazel_yaml")
+workspace(name = "yaml_cpp_examples")
