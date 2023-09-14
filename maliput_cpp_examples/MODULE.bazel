@@ -8,3 +8,5 @@ bazel_dep(name = "rules_cc", version = "0.0.8")
 bazel_dep(name = "maliput", version = "1.1.1")
 
 # local_path_override(module_name = "maliput", path = "../../maliput")
+local_path_override(module_name = "maliput_drake", path = "../../maliput_drake")
+local_path_override(module_name = "maliput_malidrive", path = "../../maliput_malidrive")

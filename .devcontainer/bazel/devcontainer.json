@@ -19,7 +19,9 @@
             ]
         }
     },
-    // "mounts": [
+    "mounts": [
     //     "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput,target=/workspaces/maliput,type=bind,consistency=cached"
-    // ]
+        "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput_drake,target=/workspaces/maliput_drake,type=bind,consistency=cached",
+        "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput_malidrive,target=/workspaces/maliput_malidrive,type=bind,consistency=cached"
+    ]
 }
