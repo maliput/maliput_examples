@@ -43,14 +43,25 @@ $ bazel build //...
 
 ### Examples
 
-```
+```sh
+# Extract z-values from the road surface
 bazel run :superelevation
 ```
 
 ### Tools
 
+Use https://odrviewer.io/ to view xodr files.
+
 ```
-bazel query @maliput_malidirve/...
+$ bazel run @maliput_malidrive//:xodr_query ${PWD}/resources/onramp.xodr FindLargestGap
+
+Largest Gap between Geometries in the XODR: 0.000500386
+Located at RoadHaderId: 91, Geometry Indexes: [5,6]
+
+$ bazel run @maliput_malidrive//:xodr_query -- ${PWD}/resources/GapInElevationNonDrivableRoad.xodr FindLargestElevationGap
+
+Largest Gap between elevation functions in the XODR: 2
+Located at RoadHaderId: 1, elevation indexes: [0,1]
 ```
 
 
