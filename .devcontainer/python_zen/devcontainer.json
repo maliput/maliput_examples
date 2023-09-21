@@ -1,10 +1,7 @@
 {
-    "name": "python",
+    "name": "Python Zen",
     "build": {
         "dockerfile": "./Dockerfile",
-        "args": {
-            "NAME": "python"
-        },
         "context": ".."
     },
     "remoteUser": "zen",
@@ -13,12 +10,12 @@
             "extensions": [
                 "bierner.github-markdown-preview",
                 "bierner.markdown-preview-github-styles",
-                "bungcip.better-toml",
                 "eamodio.gitlens",
                 "ms-python.python",
                 "omnilib.ufmt",
                 "redhat.vscode-yaml",
                 "streetsidesoftware.code-spell-checker",
+                "tamasfe.even-better-toml",
                 "tht13.rst-vscode"
             ]
         }

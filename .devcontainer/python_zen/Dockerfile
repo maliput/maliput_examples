@@ -8,7 +8,7 @@
 # 
 # Variables for configuration:
 #
-#   - NAME (default: headless)
+#   - NAME (default: python-zen)
 #   - UBUNTU_DISTRO (default: focal)
 #   - POETRY_VERSION (default: 1.6.1)
 # 
@@ -18,7 +18,7 @@ ARG UBUNTU_DISTRO=focal
 
 FROM ubuntu:${UBUNTU_DISTRO}
 
-ARG NAME=headless
+ARG NAME=python-zen
 ARG POETRY_VERSION=1.6.1
 
 ################################################################################

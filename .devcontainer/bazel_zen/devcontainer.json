@@ -1,10 +1,7 @@
 {
-    "name": "bazel",
+    "name": "Bazel Zen",
     "build": {
         "dockerfile": "Dockerfile",
-        "args": {
-            "BAZEL_BASE_IMAGE": "bazel-focal"
-        },
         "context": ".."
     },
     "remoteUser": "zen",
@@ -13,13 +10,13 @@
             "extensions": [
                 "bazelbuild.vscode-bazel",
                 "bierner.github-markdown-preview",
+                "bierner.markdown-preview-github-styles",
+                "github.vscode-github-actions",
                 "ms-vscode.cpptools-extension-pack",
                 "pbkit.vscode-pbkit",
-                "streetsidesoftware.code-spell-checker"
+                "streetsidesoftware.code-spell-checker",
+                "yzhang.markdown-all-in-one"
             ]
         }
-    },
-    // "mounts": [
-    //     "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput,target=/workspaces/maliput,type=bind,consistency=cached"
-    // ]
+    }
 }
