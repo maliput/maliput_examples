@@ -19,7 +19,7 @@ $ code .
 #   Select the python devcontainer from the subsequent drop-down
 
 # Open up a terminal (if it hasn't already)
-(docker) zen@headless:/workspaces/maliput_examples$
+(docker) zen@python-zen:/workspaces/maliput_examples$
 
 # Switch to the project
 $ cd maliput_py_examples

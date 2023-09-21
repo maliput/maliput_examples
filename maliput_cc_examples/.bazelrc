@@ -4,18 +4,21 @@
 
 common --enable_bzlmod
 
-# Central Registry
-# build --registry=https://raw.githubusercontent.com/bazelbuild/bazel-central-registry/main/
 # Central Registry Fork
-build --registry=https://raw.githubusercontent.com/stonier/bazel-central-registry/maliput_releases/
+common --registry=https://raw.githubusercontent.com/stonier/bazel-central-registry/maliput_releases/
+
+########################################
+# Bazel Configuration
+########################################
+
+# https://bazel.build/docs/user-manual#verbose-failures
+build --verbose_failures
 
 ########################################
 # C++ Configuration
 ########################################
 
-# Some of our customers use c++14, be conservative and baseline on that.
 build --cxxopt="-std=c++17"
-# Treat all warnings as errors.
 build --cxxopt="-Werror"
 
 # Silence compiling warnings for external dependencies.
