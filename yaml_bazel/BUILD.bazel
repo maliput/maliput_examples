@@ -1,0 +1,8 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "tutorial",
+    srcs = ["tutorial.cc"],
+    data = ["tutorial.yaml"],
+    deps = ["@yaml-cpp//:yaml-cpp"],
+)

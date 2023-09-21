@@ -18,5 +18,9 @@
                 "yzhang.markdown-all-in-one"
             ]
         }
-    }
+    },
+    // "mounts": [
+    //     "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput,target=/workspaces/maliput,type=bind,consistency=cached",
+    //     "source=/mnt/mervin/workspaces/devel/maliput_zen/maliput_malidrive,target=/workspaces/maliput_malidrive,type=bind,consistency=cached"
+    // ]
 }

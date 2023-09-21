@@ -10,15 +10,15 @@ and [maliput_py](https://github.com/maliput/maliput_py)).
 
 * **OS**: Ubuntu 20.04
 * **Python**: python3, pip3, poetry
-* **C++**: Bazel 6.0 or greater
+* **C++**: Bazel 6.0 or greater, --std=c++17
 * **IDE** (optional) : VSCode with DevContainers
 
 ## Usage
 
 See the individual projects for detailed setup and usage instructions.
 
-| **Project**                                            | **Lang** | **Build Tool** | **Package Repository**                                                         |
-|:------------------------------------------------------:|:--------:|:--------------:|:------------------------------------------------------------------------------:|
-| [maliput_py_examples](./maliput_py_examples/README.md) |    C++   |      Bazel     | [Bazel Central Registry](https://github.com/bazelbuild/bazel-central-registry) |
-| [maliput_cc_examples](./maliput_cc_examples/README.md) |  Python  |     Poetry     | [Pypi](https://pypi.org/search/?q=maliput)                                     |
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| **Project**                                           | **Lang** | **Build Tool** | **Package Repository**                                                         |
+|:-----------------------------------------------------:|:--------:|:--------------:|:------------------------------------------------------------------------------:|
+| [maliput_poetry](./maliput_poetry_examples/README.md) |    C++   |      Bazel     | [Bazel Central Registry](https://github.com/bazelbuild/bazel-central-registry) |
+| [maliput_bazel](./maliput_bazel_examples/README.md)   |  Python  |     Poetry     | [Pypi](https://pypi.org/search/?q=maliput)                                     |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
