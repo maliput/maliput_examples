@@ -17,11 +17,11 @@ and [maliput_py](https://github.com/maliput/maliput_py)).
 
 See the individual projects for detailed setup and usage instructions.
 
-| **Project**                                           | **Lang** | **Build Tool** | **Package Repository**                                                         |
-|:-----------------------------------------------------:|:--------:|:--------------:|:------------------------------------------------------------------------------:|
-| [maliput_poetry](./maliput_poetry_examples/README.md) |    C++   |      Bazel     | [Bazel Central Registry](https://github.com/bazelbuild/bazel-central-registry) |
-| [maliput_bazel](./maliput_bazel_examples/README.md)   |  Python  |     Poetry     | [Pypi](https://pypi.org/search/?q=maliput)                                     |
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| **Project**                                  | **Lang** | **Build Tool** | **Package Repository**                                                         |
+|:--------------------------------------------:|:--------:|:--------------:|:------------------------------------------------------------------------------:|
+| [maliput_bazel](./maliput_bazel/README.md)   |    C++   |      Bazel     | [Bazel Central Registry](https://github.com/bazelbuild/bazel-central-registry) |
+| [maliput_poetry](./maliput_poetry/README.md) |  Python  |     Poetry     | [Pypi](https://pypi.org/search/?q=maliput)                                     |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Other Resources
 
