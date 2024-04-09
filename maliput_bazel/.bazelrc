@@ -4,8 +4,8 @@
 
 common --enable_bzlmod
 
-# Central Registry Fork
-common --registry=https://raw.githubusercontent.com/stonier/bazel-central-registry/maliput_releases/
+# Central Registry
+build --registry=https://raw.githubusercontent.com/bazelbuild/bazel-central-registry/main/
 
 ########################################
 # Bazel Configuration
