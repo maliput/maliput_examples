@@ -6,7 +6,6 @@ This is an exemplar bzlmod package that depends on the bzlmodded maliput family.
 - [Usage](#usage)
   - [Examples](#examples)
   - [Tools](#tools)
-- [Errata](#errata)
 
 ## Setup
 
@@ -63,13 +62,3 @@ $ bazel run @maliput_malidrive//:xodr_query -- ${PWD}/resources/GapInElevationNo
 Largest Gap between elevation functions in the XODR: 2
 Located at RoadHaderId: 1, elevation indexes: [0,1]
 ```
-
-
-## Errata
-
-This is using a temporary fork of the bazel central registry until
-`tinyxml2`, `yaml-cpp`, `maliput` and `maliput_malidrive` are fully
-registered there.
-
-* https://github.com/maliput/maliput/issues/576
-* https://github.com/stonier/bazel-central-registry/tree/maliput_releases
