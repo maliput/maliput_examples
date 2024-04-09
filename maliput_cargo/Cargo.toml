@@ -1,0 +1,11 @@
+[package]
+name = "maliput_cargo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+maliput = { version = "^0.1.1"}
+
+[[bin]]
+name = "road_geometry"
+path = "src/road_geometry.rs"
