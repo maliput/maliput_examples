@@ -30,12 +30,38 @@
 
 // This example demonstrates how to create a RoadNetwork object from an OpenDRIVE file and
 // exercise the RoadGeometry API.
+
+use clap::Parser;
+
+/// Load an OpenDRIVE file and exercise the RoadGeometry API via ToRoadPosition query.
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    /// Name of the OpenDRIVE file to load.
+    #[arg(short='m' , long, default_value_t = String::from("TShapeRoad"))]
+    xodr_map_name: String,
+    /// Inertial position x-coordinate.
+    #[arg(short='x', long, default_value_t = f64::from(-0.5))]
+    i_pos_x: f64,
+    /// Inertial position y-coordinate.
+    #[arg(short='y', long, default_value_t = f64::from(0.0))]
+    i_pos_y: f64,
+    /// Inertial position z-coordinate.
+    #[arg(short='z', long, default_value_t = f64::from(1.0))]
+    i_pos_z: f64,
+}
+
+
 fn main() {
     use std::collections::HashMap;
 
+    let args = Args::parse();
+    // Input arguments
+    println!("* Using input args: {:?}", args);
+
     // Get location of odr resources
     let package_location = std::env::var("CARGO_MANIFEST_DIR").unwrap();
-    let xodr_path = format!("{}/resources/TShapeRoad.xodr", package_location);
+    let xodr_path = format!("{}/resources/{}.xodr", package_location, args.xodr_map_name);
 
     let road_network_properties = HashMap::from([
         ("road_geometry_id", "my_rg_from_rust"),
@@ -61,7 +87,7 @@ fn main() {
 
     // Call to_road_position() method to convert an INERTIAL position to a LANE position.
     // This inertial position is outside the road volume.
-    let inertial_position = maliput::api::InertialPosition::new(-0.5, 0., 1.0);
+    let inertial_position = maliput::api::InertialPosition::new(args.i_pos_x, args.i_pos_y, args.i_pos_z);
     let road_position_result = road_geometry.to_road_position(&inertial_position);
 
     let associated = road_position_result.distance < road_geometry.linear_tolerance();

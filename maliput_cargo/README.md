@@ -44,3 +44,29 @@ $ cargo build
 ```sh
 cargo run --bin road_geometry
 ```
+
+Use _--help_ for getting the help message.
+
+```sh
+cargo run --bin road_geometry -- --help
+```
+
+```sh
+Load an OpenDRIVE file and exercise the RoadGeometry API via ToRoadPosition query
+
+Usage: road_geometry [OPTIONS]
+
+Options:
+  -m, --xodr-map-name <XODR_MAP_NAME>  Name of the OpenDRIVE file to load [default: TShapeRoad]
+  -x, --i-pos-x <I_POS_X>              Inertial position x-coordinate [default: -0.5]
+  -y, --i-pos-y <I_POS_Y>              Inertial position y-coordinate [default: 0]
+  -z, --i-pos-z <I_POS_Z>              Inertial position z-coordinate [default: 1]
+  -h, --help                           Print help
+  -V, --version                        Print version
+```
+
+Use _--xodr-map-name_ (or _-m_) to indicate the OpenDRIVE file to load.
+You can also can indicate the Inertial Position that will be used for the ToRoadPosition query.
+```sh
+cargo run --bin road_geometry -- --xodr-map-name=SpiralRoad -x 1 -y 1 -z 1
+```
