@@ -58,19 +58,6 @@ fn main() {
 
     let road_network =
         maliput::api::RoadNetwork::new("maliput_malidrive", &road_network_properties);
-    let road_geometry = road_network.road_geometry();
-
-    // Exercise the RoadGeometry API.
-    println!("linear_tolerance: {}", road_geometry.linear_tolerance());
-    println!("angular_tolerance: {}", road_geometry.angular_tolerance());
-    println!("num_junctions: {}", road_geometry.num_junctions());
-
-    let lanes = road_geometry.get_lanes();
-    println!("num_lanes: {}", lanes.len());
-    println!("lanes: ");
-    for lane in lanes {
-        println!("\tlane id: {}", lane.id());
-    }
 
     // Get the traffic lights from the road network.
     let traffic_lights = road_network.traffic_light_book();
