@@ -10,3 +10,7 @@ clap = { version = "^4.5.4", features = ["derive"] }
 [[bin]]
 name = "road_geometry"
 path = "src/road_geometry.rs"
+
+[[bin]]
+name = "traffic_lights"
+path = "src/traffic_lights.rs"

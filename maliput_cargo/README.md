@@ -5,6 +5,8 @@ This is an example cargo package that depends on the cargo-released maliput fami
 - [Setup](#setup)
 - [Usage](#usage)
   - [Examples](#examples)
+    - [RoadGeometry](#roadgeometry)
+    - [TrafficLights](#trafficlights)
 
 ## Setup
 
@@ -41,6 +43,8 @@ $ cargo build
 
 ### Examples
 
+#### RoadGeometry
+
 ```sh
 cargo run --bin road_geometry
 ```
@@ -69,4 +73,10 @@ Use _--xodr-map-name_ (or _-m_) to indicate the OpenDRIVE file to load.
 You can also can indicate the Inertial Position that will be used for the ToRoadPosition query.
 ```sh
 cargo run --bin road_geometry -- --xodr-map-name=SpiralRoad -x 1 -y 1 -z 1
+```
+
+#### TrafficLights
+
+```sh
+cargo run --bin traffic_lights
 ```
